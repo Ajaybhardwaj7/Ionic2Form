@@ -1,3 +1,3 @@
-### This is a Ionic 2 tutorial example made for Form Validation
+### This is form based Ionic 2 sample.
 
 
