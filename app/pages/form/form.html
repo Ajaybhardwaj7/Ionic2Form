@@ -1,0 +1,40 @@
+<ion-header>
+	<ion-navbar>
+		<ion-title align ='center'>
+			Login
+		</ion-title>
+	</ion-navbar>
+</ion-header>
+
+<ion-content class="home" padding>
+    <form [ngFormModel]='authForm' (ngSubmit)='onSubmit()'> 
+
+        <!-- First Name -->
+        <ion-item [class.error]="!fNameCtrl.valid && fNameCtrl.touched"> 
+            <ion-label name='fName' id='firstName'>First Name</ion-label>
+            <ion-input name='fNameBox' id='firstNameBox'  type="text"  [(ngModel)] ="fModel" value="" [ngFormControl]="fNameCtrl"></ion-input>         
+        </ion-item>
+         
+
+        <!-- Last Name -->
+        <ion-item [class.error]="!lNameCtrl.valid && lNameCtrl.touched">
+            <ion-label name='lName' id='lastName'>Last Name</ion-label>
+            <ion-input  name='lNameBox' id='lastNameBox' type="text"  [(ngModel)] ="lModel"  value="" [ngFormControl]="lNameCtrl"></ion-input>         
+        </ion-item>
+        
+
+         <!-- Full Name -->
+         <ion-item [class.error]="!fullNameCtrl.valid">
+            <ion-label  name='fuName' id='fullName'>Full Name</ion-label>
+             <ion-input  name='fuNameBox' id='fullNameBox' type="text"  [(ngModel)] ="fModel +' '+ lModel" [disabled] = "true"  [ngFormControl]="fullNameCtrl"></ion-input>  
+           <!--  <ion-label   name='fuNameBox' id='fullNameBox'>{{fModel +" "+ lModel}}</ion-label> -->
+        </ion-item> 
+
+        <br/><br/>
+
+         <button align='center'  id = 'okBtnId' name='okBtn' type="submit" [disabled]="!authForm.valid" class="custom-button">OK</button>
+
+         <button  align='center' (click) = "onTap()" id = 'clearBtnId' name='clearBtn' type="button" class="custom-button">Clear</button>
+
+    </form>
+</ion-content>
